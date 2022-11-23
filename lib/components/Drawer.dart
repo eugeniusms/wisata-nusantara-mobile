@@ -16,6 +16,7 @@ Drawer buildDrawer(BuildContext context) {
       children: [
         ListTile(
           title: const Text('Dashboard'),
+          leading: const Icon(Icons.house),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -29,6 +30,7 @@ Drawer buildDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text('Destination'),
+          leading: const Icon(Icons.tour),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -42,6 +44,7 @@ Drawer buildDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text('Event'),
+          leading: const Icon(Icons.event),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -55,6 +58,7 @@ Drawer buildDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text('Journey'),
+          leading: const Icon(Icons.map),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -68,6 +72,7 @@ Drawer buildDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text('Story'),
+          leading: const Icon(Icons.book),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -81,6 +86,7 @@ Drawer buildDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text('FAQ'),
+          leading: const Icon(Icons.question_answer),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -94,6 +100,7 @@ Drawer buildDrawer(BuildContext context) {
         ),
         ListTile(
           title: const Text('Login'),
+          leading: const Icon(Icons.login),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
