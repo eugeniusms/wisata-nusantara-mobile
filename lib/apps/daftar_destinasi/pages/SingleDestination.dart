@@ -19,39 +19,64 @@ class SingleDestination extends StatelessWidget {
           children: <Widget>[
             Container(
                 height: 80.0,
-                padding: EdgeInsets.all(18.0),
+                padding: EdgeInsets.all(20.0),
                 child: Text("${data.nama}",
                     style: TextStyle(
                         fontSize: 25,
                         letterSpacing: 1,
-                        fontWeight: FontWeight.w800))),
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white))),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(30.0),
+              child: Image.network(
+                data.foto_cover_url,
+                width: 400,
+              ),
+            ),
+            const SizedBox(height: 20),
             Align(
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(children: [
-                  Text("Release Date: ",
+                  Text("Location: ",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                  Text("${data.lokasi}", style: TextStyle(fontSize: 16))
+                          TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white)),
+                  Text("${data.lokasi}, Indonesia",
+                      style: TextStyle(fontSize: 16, color: Colors.white))
                 ]),
                 Row(children: [
-                  Text("Rating: ",
+                  Text("Category: ",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                  Text("${data.kategori}", style: TextStyle(fontSize: 16))
+                          TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white)),
+                  Text("${data.kategori}",
+                      style: TextStyle(fontSize: 16, color: Colors.white))
                 ]),
                 Row(children: [
-                  Text("Status: ",
+                  Text("Like: ",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                  Text("${data.jumlah_suka}", style: TextStyle(fontSize: 16))
+                          TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white)),
+                  Text("${data.jumlah_suka}",
+                      style: TextStyle(fontSize: 16, color: Colors.white))
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text("Review: ",
+                  Text("Description: ",
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-                  Text("${data.deskripsi}", style: TextStyle(fontSize: 16))
+                          TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white)),
+                  Text("${data.deskripsi}",
+                      style: TextStyle(fontSize: 16, color: Colors.white))
                 ]),
               ],
             ))
