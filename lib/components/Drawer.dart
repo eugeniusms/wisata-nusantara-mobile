@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/Authentication.dart';
 import 'package:wisata_nusantara_mobile/apps/cerita_perjalanan/CeritaPerjalanan.dart';
-import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/DaftarDestinasi.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DaftarDestinasi.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_event/DaftarEvent.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:wisata_nusantara_mobile/apps/faq/FAQ.dart';
