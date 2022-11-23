@@ -9,6 +9,7 @@ class SingleDestination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 45, 48, 55),
       appBar: AppBar(
         title: Text("Detail"),
       ),
