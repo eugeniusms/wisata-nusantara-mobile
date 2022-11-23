@@ -45,28 +45,33 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
                     itemBuilder: (_, index) => InkWell(
                         child: Container(
                           margin: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 12),
+                              horizontal: 50, vertical: 12),
                           padding: const EdgeInsets.all(20.0),
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(15.0),
+                              borderRadius: BorderRadius.circular(30.0),
                               boxShadow: const [
                                 BoxShadow(color: Colors.black, blurRadius: 2.0)
                               ]),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Image.network(
+                                  snapshot.data![index].foto_thumbnail_url,
+                                  height: 300,
+                                ),
+                              ),
+                              const SizedBox(height: 15),
                               Text(
                                 "${snapshot.data![index].nama}",
                                 style: const TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              Image.network(
-                                  snapshot.data![index].foto_thumbnail_url),
-                              const SizedBox(height: 10),
+                              ),  
                             ],
                           ),
                         ),
