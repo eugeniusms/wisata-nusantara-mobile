@@ -19,6 +19,7 @@ class WisataNusantara extends StatelessWidget {
       title: 'Wisata Nusantara',
       theme: ThemeData(
         primarySwatch: Colors.green,
+          scaffoldBackgroundColor: const Color(0xFFEFEFEF)
       ),
       // menampilkan judul pada CounterPage
       home: const Dashboard(title: 'Wisata Nusantara'),

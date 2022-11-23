@@ -10,7 +10,8 @@ import 'package:wisata_nusantara_mobile/apps/panduan_perjalanan/PanduanPerjalana
 // merupakan sebuah Drawer yang digunakan untuk navigasi antar page
 Drawer buildDrawer(BuildContext context) {
   return Drawer(
-    child: Column(
+    child: ListView(
+      padding: EdgeInsets.only(top: 60.0, left: 30.0),
       // menu navigasi
       children: [
         ListTile(
