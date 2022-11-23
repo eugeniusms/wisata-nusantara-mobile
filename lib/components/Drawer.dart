@@ -36,9 +36,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => DaftarDestinasi(
-                        title: "Destination",
-                      )),
+                  builder: (context) => DaftarDestinasi()),
             );
           },
         ),
