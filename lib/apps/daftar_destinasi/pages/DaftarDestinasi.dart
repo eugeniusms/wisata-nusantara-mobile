@@ -69,10 +69,35 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
                               Text(
                                 "${snapshot.data![index].nama}",
                                 style: const TextStyle(
-                                  fontSize: 18.0,
+                                  fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              ),  
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "${snapshot.data![index].lokasi}",
+                                style: const TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey),
+                              ),
+                              const SizedBox(height: 5),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    " ${snapshot.data![index].jumlah_suka} Likes",
+                                    style: const TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              )
                             ],
                           ),
                         ),
