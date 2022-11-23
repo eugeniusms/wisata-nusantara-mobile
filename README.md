@@ -11,6 +11,7 @@
 
 ## Aplikasi 💻
 ### Technology Stack
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -24,13 +25,7 @@
 ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)
 ### Tautan
-<a href="https://ristek.link/wisata-nusantara"><button>WISATA NUSANTARA</button></a><br/>
-![Counter](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Feugeniusms1212%2Fhit-counter)
-<br/>
-Heroku Pipeline
-<br/>
-![Heroku CI Status](https://github.com/gregsadetsky/heroku-ci-badge/blob/master/badges/succeeded.svg)
-
+<a href="https://ristek.link/wisata-nusantara"><button>WEBSITE WISATA NUSANTARA</button></a><br/>
 
 ## Cerita dan Manfaat Aplikasi 🌟
 Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indonesia 2022. G20 Indonesia 2022 diharapkan dapat menjadi sarana untuk mempromosikan sektor pariwisata Indonesia dan ekonomi kreatif yang sempat melemah akibat pandemi Covid-19. Aplikasi ini akan memuat beragam destinasi dan acara di Indonesia. Selain itu, aplikasi ini juga akan memberikan panduan perjalanan bagi para wisatawan lokal dan internasional.
