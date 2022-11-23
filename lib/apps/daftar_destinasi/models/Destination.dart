@@ -14,7 +14,7 @@ class Destination {
     required this.deskripsi,
     required this.lokasi,
     required this.kategori,
-    // required this.foto_thumbnail_url,
+    required this.foto_thumbnail_url,
     // required this.foto_cover_url,
     // required this.maps_url,
     required this.jumlah_suka,
@@ -26,7 +26,7 @@ class Destination {
   String deskripsi;
   String lokasi;
   String kategori;
-  // String foto_thumbnail_url;
+  String foto_thumbnail_url;
   // String foto_cover_url;
   // String maps_url;
   int jumlah_suka;
@@ -38,7 +38,7 @@ class Destination {
         deskripsi: json["fields"]["deskripsi"],
         lokasi: json["fields"]["lokasi"],
         kategori: json["fields"]["kategori"],
-        // foto_thumbnail_url: json["fields"]["foto_thumbnail_url"],
+        foto_thumbnail_url: json["fields"]["foto_thumbnail_url"],
         // foto_cover_url: json["fields"]["foto_cover_url"],
         // maps_url: json["fields"]["maps_url"],
         jumlah_suka: json["fields"]["jumlah_suka"],

@@ -64,6 +64,8 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+                              Image.network(
+                                  snapshot.data![index].foto_thumbnail_url),
                               const SizedBox(height: 10),
                             ],
                           ),
