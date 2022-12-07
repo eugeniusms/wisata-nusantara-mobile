@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:wisata_nusantara_mobile/apps/faq/models/public_faq_model.dart';
+import 'package:wisata_nusantara_mobile/apps/faq/pages/FaqDetailScreenPage.dart';
 
-class ToDoPage extends StatefulWidget {
-  const ToDoPage({Key? key}) : super(key: key);
+class FAQPage extends StatefulWidget {
+  const FAQPage({Key? key}) : super(key: key);
 
   @override
-  _ToDoPageState createState() => _ToDoPageState();
+  _FAQPageState createState() => _FAQPageState();
 }
 
-class _ToDoPageState extends State<ToDoPage> {
+class _FAQPageState extends State<FAQPage> {
   Future<List<PublicFaq>> fetchToDo() async {
     var url =
         Uri.parse('https://wisata-nusantara.up.railway.app/faq/json/public/');
@@ -40,9 +41,10 @@ class _ToDoPageState extends State<ToDoPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('To Do'),
-        ),
+        // appBar: AppBar(
+        //   title: const Text('My Watchlist'),
+        // ),
+        // drawer: const Drawer(),
         body: FutureBuilder(
             future: fetchToDo(),
             builder: (context, AsyncSnapshot snapshot) {
@@ -53,7 +55,7 @@ class _ToDoPageState extends State<ToDoPage> {
                   return Column(
                     children: const [
                       Text(
-                        "Tidak ada to do list :(",
+                        "Tidak ada MyWatchlist :(",
                         style:
                             TextStyle(color: Color(0xff59A5D8), fontSize: 20),
                       ),
@@ -64,16 +66,23 @@ class _ToDoPageState extends State<ToDoPage> {
                   return ListView.builder(
                       itemCount: snapshot.data!.length,
                       itemBuilder: (_, index) => Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 12),
-                            padding: const EdgeInsets.all(20.0),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15.0),
-                                boxShadow: const [
-                                  BoxShadow(
-                                      color: Colors.black, blurRadius: 2.0)
-                                ]),
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
+                          padding: const EdgeInsets.all(20.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15.0),
+                              boxShadow: const [
+                                BoxShadow(color: Colors.black, blurRadius: 2.0)
+                              ]),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailScreen(
+                                          todo: snapshot.data![index])));
+                            },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,10 +95,11 @@ class _ToDoPageState extends State<ToDoPage> {
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Text("${snapshot.data![index].fields.answer}"),
+                                // Text(
+                                //     "${snapshot.data![index].fields.releaseDate}"),
                               ],
                             ),
-                          ));
+                          )));
                 }
               }
             }));
