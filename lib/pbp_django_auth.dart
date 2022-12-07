@@ -38,6 +38,7 @@ class CookieRequest {
   // login
   Future<dynamic> login(String url, dynamic data) async {
     print("MASUK 1");
+    print(data);
     if (kIsWeb) {
       dynamic c = _client;
       c.withCredentials = true;
