@@ -35,7 +35,9 @@ class CookieRequest {
     local.setString("cookies", cookies);
   }
 
+  // login
   Future<dynamic> login(String url, dynamic data) async {
+    print("MASUK 1");
     if (kIsWeb) {
       dynamic c = _client;
       c.withCredentials = true;
@@ -44,17 +46,22 @@ class CookieRequest {
     http.Response response =
         await _client.post(Uri.parse(url), body: data, headers: headers);
 
+    // encode json first
+    var jsonEncode = json.encode(response.body);
+    print(jsonEncode);
+
     await _updateCookie(response);
 
     if (response.statusCode == 200) {
       loggedIn = true;
-      jsonData = json.decode(response.body);
+      jsonData = json.decode(jsonEncode);
     } else {
       loggedIn = false;
     }
 
     // Expects and returns JSON request body
-    return json.decode(response.body);
+    print("MASUK 2");
+    return json.decode(jsonEncode);
   }
 
   Map<String, dynamic> getJsonData() {
