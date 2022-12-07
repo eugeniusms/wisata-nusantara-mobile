@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/Authentication.dart';
+import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
 import 'package:wisata_nusantara_mobile/apps/cerita_perjalanan/CeritaPerjalanan.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/DaftarDestinasi.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_event/DaftarEvent.dart';
@@ -106,7 +107,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => Authentication(
+                  builder: (context) => LoginPage(
                         title: "Login",
                       )),
             );
