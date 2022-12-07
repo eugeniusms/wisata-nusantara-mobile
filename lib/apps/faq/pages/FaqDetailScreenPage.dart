@@ -12,9 +12,9 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Use the Todo to create the UI.
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(todo.fields.title),
-      // ),
+      appBar: AppBar(
+        title: const Text("Details"),
+      ),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

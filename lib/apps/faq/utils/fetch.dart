@@ -113,10 +113,10 @@ class _FAQPageState extends State<FAQPage> {
             label: const Text('Ask New Question'),
             icon: const Icon(Icons.thumb_up),
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => FaqForm(
+                    builder: (context) => const FaqForm(
                         // title: "Dashboard",
                         )),
               );
