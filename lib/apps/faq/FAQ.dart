@@ -15,7 +15,7 @@ class FAQ extends StatelessWidget {
       ),
       drawer: buildDrawer(context),
       body: Center(
-        child: ToDoPage(),
+        child: FAQPage(),
         // MULAI KERJAIN DARI SINI YA
       ),
     );
