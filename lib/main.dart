@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 // TEST WEBHOOK
 
@@ -18,11 +20,16 @@ class WisataNusantara extends StatelessWidget {
     return MaterialApp(
       title: 'Wisata Nusantara',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-          scaffoldBackgroundColor: const Color(0xFFEFEFEF)
-      ),
+          primarySwatch: Colors.green,
+          scaffoldBackgroundColor: const Color(0xFFEFEFEF)),
       // menampilkan judul pada CounterPage
       home: const Dashboard(title: 'Wisata Nusantara'),
     );
   }
+}
+
+Future startApp() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }

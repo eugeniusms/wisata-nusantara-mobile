@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "963244636",
+    "project_id": "wisata-nusantara-2ab08",
+    "storage_bucket": "wisata-nusantara-2ab08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963244636:android:fe2894aef58b5d8ff9ec99",
+        "android_client_info": {
+          "package_name": "com.example.wisata_nusantara_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963244636-let9ok8k5amj0rvshddvod569itddkqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgYhaAbw3ojwvBiRsjSWrlIQEYldnvK04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963244636-let9ok8k5amj0rvshddvod569itddkqe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "963244636-1hhgu558f8sg1gat18mkb1j1futs3ri4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wisataNusantaraMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
