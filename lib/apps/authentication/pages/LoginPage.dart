@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:wisata_nusantara_mobile/components/Drawer.dart';
-import 'package:wisata_nusantara_mobile/pbp_django_auth.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/pages/RegisterPage.dart';
 
