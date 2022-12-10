@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: TextButton(
                           onPressed: () async {
                             final response = await request.login(
-                                "https://wisata-nusantara.up.railway.app/auth/login-flutter",
+                                "https://wisata-nusa.up.railway.app/auth/login-flutter/",
                                 {
                                   'username': username,
                                   'password': password1,
