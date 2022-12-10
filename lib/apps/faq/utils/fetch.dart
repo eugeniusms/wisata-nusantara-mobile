@@ -14,8 +14,7 @@ class FAQPage extends StatefulWidget {
 
 class _FAQPageState extends State<FAQPage> {
   Future<List<PublicFaq>> fetchToDo() async {
-    var url =
-        Uri.parse('https://wisata-nusantara.up.railway.app/faq/json/public/');
+    var url = Uri.parse('https://wisata-nusa.up.railway.app/faq/json/public/');
     var response = await http.get(
       url,
       headers: {
@@ -57,7 +56,7 @@ class _FAQPageState extends State<FAQPage> {
                   children: const [
                     Text(
                       "Tidak ada MyWatchlist :(",
-                      style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                      style: TextStyle(color: Colors.green, fontSize: 20),
                     ),
                     SizedBox(height: 8),
                   ],
@@ -73,7 +72,7 @@ class _FAQPageState extends State<FAQPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15.0),
                             boxShadow: const [
-                              BoxShadow(color: Colors.black, blurRadius: 2.0)
+                              BoxShadow(color: Colors.green, blurRadius: 2.0)
                             ]),
                         child: GestureDetector(
                           onTap: () {
@@ -87,6 +86,8 @@ class _FAQPageState extends State<FAQPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              const SizedBox(height: 5),
+
                               Text(
                                 "${snapshot.data![index].fields.question}",
                                 style: const TextStyle(
@@ -94,7 +95,7 @@ class _FAQPageState extends State<FAQPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 5),
                               // Text(
                               //     "${snapshot.data![index].fields.releaseDate}"),
                             ],
