@@ -30,10 +30,11 @@ class DetailScreen extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
-                        color: Color.fromARGB(255, 0, 157, 255)),
-                  ))
+                        color: Colors.green),
+                  )),
                 ],
               ),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
