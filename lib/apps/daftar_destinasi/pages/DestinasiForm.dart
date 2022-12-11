@@ -355,7 +355,8 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                     alignment: Alignment.bottomCenter,
                     child: TextButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.blue),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.green),
                       ),
                       onPressed: () async {
                         // melakukan validasi form saat button onPressed
@@ -398,7 +399,10 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                       // button
                       child: const Text(
                         "Add Destination",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),

@@ -41,20 +41,6 @@ Drawer buildDestinasiDrawer(BuildContext context) {
           },
         ),
         ListTile(
-          title: const Text('Wishlist'),
-          leading: const Icon(Icons.favorite),
-          onTap: () {
-            // Route menu ke counter
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const WishlistPage(
-                        title: "Wishlist",
-                      )),
-            );
-          },
-        ),
-        ListTile(
           title: const Text('Add Destination'),
           leading: const Icon(Icons.add),
           // saat diklik maka Navigator akan mengarahkan ke halaman Form
