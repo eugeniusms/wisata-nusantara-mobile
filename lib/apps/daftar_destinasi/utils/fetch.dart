@@ -4,7 +4,7 @@ import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/models/destination
 
 Future<List<Destination>> fetchDestination() async {
   var url =
-      Uri.parse('https://wisata-nusantara.herokuapp.com/destination/json/');
+      Uri.parse('https://wisata-nusa.up.railway.app/destination/json/');
   var response = await http.get(url, headers: {
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
