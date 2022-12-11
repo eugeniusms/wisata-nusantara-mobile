@@ -117,6 +117,7 @@ Drawer buildDrawer(BuildContext context) {
         const Divider(),
         ListTile(
           title: const Text('Log Out'),
+          leading: const Icon(Icons.logout),
           onTap: () async {
             final response = await request.logout(
                 "https://wisata-nusa.up.railway.app/auth-flutter/logout/");

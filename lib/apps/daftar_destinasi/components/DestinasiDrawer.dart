@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/Authentication.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DaftarDestinasi.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/Wishlist.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DestinasiForm.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -17,7 +18,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
       children: [
         ListTile(
           title: const Text('Back'),
-          leading: const Icon(Icons.house),
+          leading: const Icon(Icons.arrow_back),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -41,7 +42,22 @@ Drawer buildDestinasiDrawer(BuildContext context) {
           },
         ),
         ListTile(
-          title: const Text('Destination Form'),
+          title: const Text('Wishlist'),
+          leading: const Icon(Icons.favorite),
+          onTap: () {
+            // Route menu ke counter
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => WishlistPage(
+                        title: "Wishlist",
+                      )),
+            );
+          },
+        ),
+        ListTile(
+          title: const Text('Add Destination'),
+          leading: const Icon(Icons.add),
           // saat diklik maka Navigator akan mengarahkan ke halaman Form
           onTap: () {
             Navigator.pushReplacement(
@@ -68,6 +84,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
         const Divider(),
         ListTile(
           title: const Text('Log Out'),
+          leading: const Icon(Icons.logout),
           onTap: () async {
             final response = await request.logout(
                 "https://wisata-nusa.up.railway.app/auth-flutter/logout/");
