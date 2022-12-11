@@ -1,0 +1,71 @@
+  let kondisiDestinasi = "";
+  let suhuDestinasi = "";
+
+  if (cuacaDestinasi[1] >= 27 ) {
+    suhuDestinasi = `
+        src="/static/panduan_perjalanan/svg/thermometer-outline.svg"
+        class = "list-icon"
+      Cuaca di kota destinasi cukup panas
+        src="/static/panduan_perjalanan/svg/shirt-outline.svg"
+        class = "list-icon"
+      Pakai pakaian yang mudah menyerap keringat, seperti baju kaus
+        src="/static/panduan_perjalanan/svg/water-outline.svg"
+        class = "list-icon"
+      Jangan lupa membawa wadah minum!
+        src="/static/panduan_perjalanan/svg/umbrella-outline.svg"
+        class = "list-icon"
+      Membawa payung anti sinar UV atau topi
+    `;
+  } else {
+    suhuDestinasi = `
+        src="/static/panduan_perjalanan/svg/thermometer-outline.svg"
+        class = "list-icon"
+      Cuaca di kota destinasi cukup dingin
+        src="/static/panduan_perjalanan/svg/shirt-outline.svg"
+        class = "list-icon"
+      Membawa jaket, sweater, atau baju lengan panjang
+    `;
+  }
+
+  let kondisi = "";
+  let iconKondisi = "";
+  if (cuacaDestinasi[0].slice(0,2) === "01") {
+    kondisi = "Cuaca yang bagus untuk pergi wisata!";
+    iconKondisi = "sunny";
+  } else if (cuacaDestinasi[0].slice(0,1) === "0") {
+    kondisi = "Cuaca berawan, tetapi tidak akan mengganggu perjalanan!";
+    iconKondisi = "cloudy";
+  } else {
+    const status = cuacaDestinasi[0].slice(0,2);
+    let deskripsiCuaca = "";
+    if (status == 10) {
+      deskripsiCuaca = "hujan"
+      iconKondisi = "rainy";
+    } else if (status == 11) {
+      deskripsiCuaca = "badai";
+      iconKondisi = "thunderstorm";
+    } else if (status == 13) {
+      deskripsiCuaca = "bersalju";
+      iconKondisi = "snow";
+    } else {
+      deskripsiCuaca = "berkabut";
+      iconKondisi = "wind";
+    }
+    kondisi = `Cuaca ${deskripsiCuaca} tunda jalan-jalan dahulu, mungkin di lain hari akan kembali cerah`;
+  }
+
+  kondisiDestinasi += `
+        src="/static/panduan_perjalanan/svg/${iconKondisi}-outline.svg"
+        class = "list-icon"
+      ${kondisi}
+    `
+
+  stringCuaca += `
+            src="/static/panduan_perjalanan/svg/airplane-outline.svg"
+            class = "list-icon"
+          ${penerbangan}
+
+        ${suhuDestinasi}
+        ${kondisiDestinasi}
+  `;
+}
