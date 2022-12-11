@@ -6,6 +6,7 @@ import 'package:wisata_nusantara_mobile/components/Drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/pages/RegisterPage.dart';
+import 'package:wisata_nusantara_mobile/apps/authentication/models/User.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -154,6 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                                   'password': password1,
                                 });
                             if (response['status']) {
+                              UserLoggedIn.user = (User(username));
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
                                 content: Text("Successfully logged in!"),
@@ -165,6 +167,8 @@ class _LoginPageState extends State<LoginPage> {
                                           title: "Dashboard",
                                         )),
                               );
+                              print(UserLoggedIn.user
+                                  .username); // GET USERNAME OF LOGGED IN USER
                             } else {
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
