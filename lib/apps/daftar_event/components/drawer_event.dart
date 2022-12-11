@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../dashboard/Dashboard.dart';
-import '../screens/add_event.dart';
+import '../pages/add_event.dart';
 
 Drawer buildEventDrawer(BuildContext context) {
   return Drawer(
