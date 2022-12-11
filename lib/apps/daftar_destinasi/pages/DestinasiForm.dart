@@ -368,13 +368,13 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                             _foto_thumbnail_url != "" &&
                             _foto_cover_url != "" &&
                             _maps_url != "") {
-                          print(_nama);
-                          print(_deskripsi);
-                          print(_lokasi);
-                          print(_kategori);
-                          print(_foto_thumbnail_url);
-                          print(_foto_cover_url);
-                          print(_maps_url);
+                          // print(_nama);
+                          // print(_deskripsi);
+                          // print(_lokasi);
+                          // print(_kategori);
+                          // print(_foto_thumbnail_url);
+                          // print(_foto_cover_url);
+                          // print(_maps_url);
 
                           // send to backend
                           final response = await request.postJson(
