@@ -34,8 +34,3 @@ class WisataNusantara extends StatelessWidget {
   }
 }
 
-// Future startApp() async {
-//   await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions.currentPlatform,
-//   );
-// }
