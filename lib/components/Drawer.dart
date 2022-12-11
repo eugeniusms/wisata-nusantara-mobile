@@ -3,7 +3,7 @@ import 'package:wisata_nusantara_mobile/apps/authentication/Authentication.dart'
 import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
 import 'package:wisata_nusantara_mobile/apps/cerita_perjalanan/CeritaPerjalanan.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DaftarDestinasi.dart';
-import 'package:wisata_nusantara_mobile/apps/daftar_event/DaftarEvent.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_event/pages/daftar_event.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:wisata_nusantara_mobile/apps/faq/FAQ.dart';
 import 'package:wisata_nusantara_mobile/apps/panduan_perjalanan/PanduanPerjalanan.dart';

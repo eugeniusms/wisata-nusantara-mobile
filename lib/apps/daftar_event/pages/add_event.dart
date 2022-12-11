@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_event/components/drawer_event.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'dart:convert';
+import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+import 'package:wisata_nusantara_mobile/apps/daftar_event/pages/daftar_event.dart';
 
 class AddEvent extends StatefulWidget {
   const AddEvent({super.key});
@@ -14,7 +20,7 @@ class _AddEventState extends State<AddEvent> {
   String lokasi = "";
   String deskripsi = "";
   String foto = "";
-  String _selected = 'Semuanya';
+  String jenis = 'Semuanya';
   // List<String> listcategory = [
   //   'Semuanya',
   //   'Musik',
@@ -22,6 +28,24 @@ class _AddEventState extends State<AddEvent> {
   //   'Budaya',
   //   'Lainnya'
   // ];
+  void _showToast(BuildContext context, bool isValid) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(SnackBar(
+        // saat valid maka warna hijau, sebaliknya merah
+        backgroundColor: isValid ? Colors.green : Colors.red,
+        // saat valid maka text menampilkan 'Budget berhasil disimpan', sebaliknya 'Isian masih belum lengkap :)'
+        content: Text(isValid
+            ? "Destination successfully saved"
+            : "Form is not complete yet!"),
+        // menambahkan actio
+        action: SnackBarAction(
+            label: 'Close',
+            textColor: Colors.white,
+            onPressed: () {
+              scaffold.hideCurrentSnackBar;
+            })));
+  }
+
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
       DropdownMenuItem(child: Text("Semuanya"), value: "Semuanya"),
@@ -32,10 +56,6 @@ class _AddEventState extends State<AddEvent> {
     ];
     return menuItems;
   }
-
-  // Future<void> onPressed(BuildContext context) async {
-  //   final request = context.read<CookieRequest>();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -112,10 +132,10 @@ class _AddEventState extends State<AddEvent> {
                 ),
                 SizedBox(height: 10),
                 DropdownButton(
-                    value: _selected,
+                    value: jenis,
                     onChanged: (String? newValue) {
                       setState(() {
-                        _selected = newValue!;
+                        jenis = newValue!;
                       });
                     },
                     items: dropdownItems),
@@ -176,14 +196,52 @@ class _AddEventState extends State<AddEvent> {
                     alignment: Alignment.bottomCenter,
                     child: TextButton(
                       child: const Text("Add New Event",
-                          style: TextStyle(color: Colors.white)),
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 20.0)),
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.blue)),
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                          backgroundColor: MaterialStateProperty.all(
+                              Color.fromARGB(255, 9, 42, 59))),
+                      onPressed: () async {
+                        String postUrl =
+                            "https://wisata-nusa.up.railway.app/event/add_from_flutter/";
+                        var url = Uri.parse(postUrl);
+                        if (_formKey.currentState!.validate()) {
+                          final response = await http.post(url,
+                              body: json.encode({
+                                'nama': nama,
+                                'lokasi': lokasi,
+                                'jenis': jenis,
+                                'deskripsi': deskripsi,
+                                'foto': foto,
+                              }));
+
+                          _showToast(context, true);
+                          _formKey.currentState?.reset();
+                          // Navigator.pop(context);
+                        } else {
+                          _showToast(context, false);
+                        }
                       },
-                    ))
+                    )),
+                SizedBox(
+                  height: 10,
+                ),
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: TextButton(
+                      child: const Text("Back",
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 20.0)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Color.fromARGB(255, 9, 42, 59))),
+                      onPressed: () async {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DaftarEvent()));
+                      },
+                    )),
               ],
             ),
           ),

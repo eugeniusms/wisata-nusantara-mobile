@@ -1,6 +1,7 @@
 // Aulia Najwa Salsabila
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_event/components/drawer_event.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_event/pages/add_event.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_event/utils/fetch.dart';
 import 'package:wisata_nusantara_mobile/components/Drawer.dart';
 // import 'package:wisata_nusantara_mobile/apps/daftar_event/pages/ShowEvent.dart';
@@ -27,11 +28,19 @@ class _DaftarEventState extends State<DaftarEvent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromARGB(255, 9, 42, 59),
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => AddEvent()));
+        },
+      ),
       appBar: AppBar(
         title: const Text("Daftar Event"),
         backgroundColor: Color.fromARGB(255, 9, 42, 59),
       ),
-      drawer: buildEventDrawer(context),
+      drawer: buildDrawer(context),
       body: FutureBuilder(
         future: fetchEvent(),
         builder: (context, AsyncSnapshot snapshot) {
