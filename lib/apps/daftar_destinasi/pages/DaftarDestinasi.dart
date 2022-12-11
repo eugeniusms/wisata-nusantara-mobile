@@ -1,6 +1,7 @@
 // Eugenius Mario Situmorang
 import 'package:flutter/material.dart';
-import 'package:wisata_nusantara_mobile/components/Drawer.dart';
+// import 'package:wisata_nusantara_mobile/components/Drawer.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/components/DestinasiDrawer.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/models/destination.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/utils/fetch.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/SingleDestination.dart';
@@ -23,7 +24,7 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
         title: Text("Destination"),
       ),
       // menambahkan Drawer untuk navigasi antarhalaman
-      drawer: buildDrawer(context),
+      drawer: buildDestinasiDrawer(context),
       body: FutureBuilder(
           future: fetchDestination(),
           builder: (context, AsyncSnapshot snapshot) {
