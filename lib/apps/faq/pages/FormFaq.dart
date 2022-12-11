@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class FaqForm extends StatefulWidget {
   const FaqForm({super.key});
@@ -10,17 +9,17 @@ class FaqForm extends StatefulWidget {
 
 class _FaqFormState extends State<FaqForm> {
   final _formKey = GlobalKey<FormState>();
-  String _judulData = "";
-  var _nominalData;
-  String jenisBudget = 'Pemasukan';
-  List<String> listJenisBudget = ['Pemasukan', 'Pengeluaran'];
+  String _ownerName = "";
+  var _newQuestion;
 
   @override
   Widget build(BuildContext context) {
     // var _controller;
     return Scaffold(
+      // backgroundColor: Color.fromARGB(255, 77, 79, 86),
+
       appBar: AppBar(
-        title: const Text('Tanya Bu Hajah'),
+        title: const Text('Ask New Question'),
       ),
       // drawer: const MyDrawer(),
       body: Form(
@@ -48,13 +47,13 @@ class _FaqFormState extends State<FaqForm> {
                     // Menambahkan behavior saat nama diketik
                     onChanged: (String? value) {
                       setState(() {
-                        _judulData = value!;
+                        _ownerName = value!;
                       });
                     },
                     // Menambahkan behavior saat data disimpan
                     onSaved: (String? value) {
                       setState(() {
-                        _judulData = value!;
+                        _ownerName = value!;
                       });
                     },
                     // Validator sebagai validasi form
@@ -87,13 +86,13 @@ class _FaqFormState extends State<FaqForm> {
                     // Menambahkan behavior saat nama diketik
                     onChanged: (String? value) {
                       setState(() {
-                        _nominalData = value!;
+                        _newQuestion = value!;
                       });
                     },
                     // Menambahkan behavior saat data disimpan
                     onSaved: (String? value) {
                       setState(() {
-                        _nominalData = value!;
+                        _newQuestion = value!;
                       });
                     },
                     // Validator sebagai validasi form
@@ -121,7 +120,7 @@ class _FaqFormState extends State<FaqForm> {
             icon: const Icon(Icons.add),
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                // var temp = Budget(_judulData, _nominalData, jenisBudget);
+                // var temp = Budget(_ownerName, _newQuestion, jenisBudget);
                 // ListBudget.list.add(temp);
                 showDialog(
                   context: context,
