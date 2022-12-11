@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/components/DestinasiDrawer.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'dart:convert';
+import 'package:provider/provider.dart';
 
 // merupakan halaman form budget
 class DestinasiFormPage extends StatefulWidget {
@@ -52,6 +55,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
         // nama dari app bar adalah form budget
@@ -353,7 +357,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         // melakukan validasi form saat button onPressed
                         if (_formKey.currentState!.validate() &&
                             _nama != "" &&
@@ -370,6 +374,20 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                           print(_foto_thumbnail_url);
                           print(_foto_cover_url);
                           print(_maps_url);
+
+                          // send to backend
+                          final response = await request.postJson(
+                              "https://wisata-nusa.up.railway.app/destination/",
+                              jsonEncode({
+                                "nama": _nama,
+                                "deskripsi": _deskripsi,
+                                "lokasi": _lokasi,
+                                "kategori": _kategori,
+                                "foto_thumbnail_url": _foto_thumbnail_url,
+                                "foto_cover_url": _foto_cover_url,
+                                "maps_url": _maps_url,
+                              }));
+
                           // menampilkan toast saat valid
                           _showToast(context, true);
                           clearInput();

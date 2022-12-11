@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wisata_nusantara_mobile/apps/authentication/Authentication.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DaftarDestinasi.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/Wishlist.dart';
@@ -13,7 +12,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
   final request = context.watch<CookieRequest>();
   return Drawer(
     child: ListView(
-      padding: EdgeInsets.only(top: 60.0, left: 30.0),
+      padding: const EdgeInsets.only(top: 60.0, left: 30.0),
       // menu navigasi
       children: [
         ListTile(
@@ -24,7 +23,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => Dashboard(
+                  builder: (context) => const Dashboard(
                         title: "Dashboard",
                       )),
             );
@@ -37,7 +36,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             // Route menu ke counter
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => DaftarDestinasi()),
+              MaterialPageRoute(builder: (context) => const DaftarDestinasi()),
             );
           },
         ),
@@ -49,7 +48,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => WishlistPage(
+                  builder: (context) => const WishlistPage(
                         title: "Wishlist",
                       )),
             );
@@ -75,7 +74,7 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => LoginPage(
+                  builder: (context) => const LoginPage(
                         title: "Login",
                       )),
             );

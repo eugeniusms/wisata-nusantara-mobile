@@ -15,7 +15,7 @@ Drawer buildDrawer(BuildContext context) {
   final request = context.watch<CookieRequest>();
   return Drawer(
     child: ListView(
-      padding: EdgeInsets.only(top: 60.0, left: 30.0),
+      padding: const EdgeInsets.only(top: 60.0, left: 30.0),
       // menu navigasi
       children: [
         ListTile(
@@ -26,7 +26,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => Dashboard(
+                  builder: (context) => const Dashboard(
                         title: "Dashboard",
                       )),
             );
@@ -40,7 +40,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => DaftarDestinasi()),
+                  builder: (context) => const DaftarDestinasi()),
             );
           },
         ),
@@ -52,7 +52,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => DaftarEvent(
+                  builder: (context) => const DaftarEvent(
                         title: "Event",
                       )),
             );
@@ -66,7 +66,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => PanduanPerjalanan(
+                  builder: (context) => const PanduanPerjalanan(
                         title: "Journey",
                       )),
             );
@@ -80,7 +80,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => CeritaPerjalanan(
+                  builder: (context) => const CeritaPerjalanan(
                         title: "Story",
                       )),
             );
@@ -94,7 +94,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => FAQ(
+                  builder: (context) => const FAQ(
                         title: "FAQ",
                       )),
             );
@@ -108,7 +108,7 @@ Drawer buildDrawer(BuildContext context) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => LoginPage(
+                  builder: (context) => const LoginPage(
                         title: "Login",
                       )),
             );
