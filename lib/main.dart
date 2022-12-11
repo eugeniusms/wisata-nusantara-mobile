@@ -28,7 +28,7 @@ class WisataNusantara extends StatelessWidget {
                 primarySwatch: Colors.green,
                 scaffoldBackgroundColor: const Color(0xFFEFEFEF)),
             // menampilkan judul
-            home: const LoginPage(title: 'Wisata Nusantara')
+            home: const Dashboard(title: 'Dashboard')
             // routes:
             ));
   }
