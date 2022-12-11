@@ -7,9 +7,12 @@ import 'package:wisata_nusantara_mobile/apps/daftar_event/DaftarEvent.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
 import 'package:wisata_nusantara_mobile/apps/faq/FAQ.dart';
 import 'package:wisata_nusantara_mobile/apps/panduan_perjalanan/PanduanPerjalanan.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 // merupakan sebuah Drawer yang digunakan untuk navigasi antar page
 Drawer buildDrawer(BuildContext context) {
+  final request = context.watch<CookieRequest>();
   return Drawer(
     child: ListView(
       padding: EdgeInsets.only(top: 60.0, left: 30.0),
@@ -111,6 +114,28 @@ Drawer buildDrawer(BuildContext context) {
                         title: "Login",
                       )),
             );
+          },
+        ),
+        const Divider(),
+        ListTile(
+          title: const Text('Log Out'),
+          onTap: () async {
+            final response = await request.logout(
+                "https://wisata-nusa.up.railway.app/auth-flutter/logout/");
+            if (response['status']) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text("Successfully logged out!"),
+              ));
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const LoginPage(title: "Login")),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text("An error occured, please try again."),
+              ));
+            }
           },
         ),
       ],
