@@ -89,5 +89,12 @@ Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indo
     - <b>Halaman Login dan Register</b><br/>
     Admin dapat membuat akun dan masuk ke dalam aplikasi.
 
+## Alur Pengintegrasian dengan Web Service untuk Terhubung dengan Aplikasi Web yang Sudah dibuat saat Proyek Tengah Semester
+1.  Website yang telah terlebih dahulu dideploy disusun memiliki backend yang dapat menampilkan JSON data-data terkait
+2.  Membuat file bernama fetch.dart dalam utils folder untuk melakukan proses async mengambil data
+4.  fetch.dart dilengkapi dengan suatu fungsi yang dapat dipanggil dari luar file kemudian melakukan return data dalam suatu list
+5.  Fungsi di dalam fetch.dart mengandung url yang digunakan sebagai endpoint JSON
+3.  Pemanggilan fungsi dilakukan di widget terkait untuk diolah sesuai dengan kebutuhan
+
 ## License
 By contributing, you agree that your contributions will be licensed under its [MIT license](./LICENSE).
