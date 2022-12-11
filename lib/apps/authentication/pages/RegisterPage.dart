@@ -19,7 +19,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
 
   String username = "";
-  String email = "";
   String password1 = "";
   String password2 = "";
 
@@ -81,39 +80,6 @@ class _RegisterPageState extends State<RegisterPage> {
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Username tidak boleh kosong';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25.0, vertical: 10.0),
-                        child: TextFormField(
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            hintText: "contoh: Dummy@gmail.com",
-                            labelText: "Email",
-                            labelStyle: const TextStyle(color: Colors.white),
-                            icon: const Icon(Icons.attach_email),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0)),
-                            hintStyle: const TextStyle(color: Colors.white),
-                          ),
-                          onChanged: (String? value) {
-                            setState(() {
-                              email = value!;
-                            });
-                          },
-                          onSaved: (String? value) {
-                            setState(() {
-                              email = value!;
-                            });
-                          },
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Email tidak boleh kosong';
                             }
                             return null;
                           },
@@ -207,7 +173,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                   "https://wisata-nusa.up.railway.app/auth-flutter/register/",
                                   convert.jsonEncode(<String, String>{
                                     'username': username,
-                                    'email': email,
                                     'password1': password1,
                                     'password2': password2,
                                   }));
