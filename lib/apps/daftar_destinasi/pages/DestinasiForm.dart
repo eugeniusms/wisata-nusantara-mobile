@@ -377,7 +377,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
 
                           // send to backend
                           final response = await request.postJson(
-                              "https://wisata-nusa.up.railway.app/destination/",
+                              "https://wisata-nusa.up.railway.app/destination/add/",
                               jsonEncode({
                                 "nama": _nama,
                                 "deskripsi": _deskripsi,
