@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: TextButton(
                           onPressed: () async {
                             final response = await request.login(
-                                "https://wisata-nusa.up.railway.app/auth/login-flutter/",
+                                "https://wisata-nusa.up.railway.app/auth-flutter/login/",
                                 {
                                   'username': username,
                                   'password': password1,
@@ -194,9 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => RegisterPage(
-                                  title: "Register",
-                                )),
+                            builder: (context) => const RegisterPage()),
                       );
                     },
                     child: Container(
