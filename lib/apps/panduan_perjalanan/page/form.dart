@@ -100,6 +100,51 @@ class _FormPageState extends State<FormPage> {
       ),
     );
 
+    Image image() {
+      return Image.asset(
+        "assets/images/panduan-perjalanan/travel-map.jpg",
+        height: 250,
+      );
+    }
+
+    Widget flexibleText(String text, double size, FontWeight fweight) {
+      return Flexible(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: size,
+            fontWeight: fweight,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
+
+    final containerForm = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      width: double.maxFinite,
+      decoration: BoxDecoration(
+        color: Colors.green[100],
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Container(child: image()),
+          SizedBox(height: 4),
+          flexibleText("Mulai pandu perjalanan!", 24, FontWeight.w600),
+          flexibleText(
+              "Hanya perlu mengisi form dengan kota keberangkatan dan kota destinasi",
+              18,
+              FontWeight.normal),
+          kotaAsalForm,
+          kotaTujuanForm,
+          submitBtn,
+        ],
+      ),
+    );
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -109,12 +154,10 @@ class _FormPageState extends State<FormPage> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              kotaAsalForm,
-              kotaTujuanForm,
-              submitBtn,
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverFillRemaining(hasScrollBody: false, child: containerForm)
             ],
           ),
         ),
