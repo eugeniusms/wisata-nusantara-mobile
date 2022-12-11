@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
 
 // TEST WEBHOOK
 
@@ -14,15 +17,19 @@ class WisataNusantara extends StatelessWidget {
   // widget root of application.
   @override
   Widget build(BuildContext context) {
-    // seperti meta tag pada html
-    return MaterialApp(
-      title: 'Wisata Nusantara',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-          scaffoldBackgroundColor: const Color(0xFFEFEFEF)
-      ),
-      // menampilkan judul pada CounterPage
-      home: const Dashboard(title: 'Wisata Nusantara'),
-    );
+    return Provider(
+        create: (_) {
+          CookieRequest request = CookieRequest();
+          return request;
+        },
+        child: MaterialApp(
+            title: 'Wisata Nusantara',
+            theme: ThemeData(
+                primarySwatch: Colors.green,
+                scaffoldBackgroundColor: const Color(0xFFEFEFEF)),
+            // menampilkan judul
+            home: const LoginPage(title: 'Wisata Nusantara')
+            // routes:
+            ));
   }
 }
