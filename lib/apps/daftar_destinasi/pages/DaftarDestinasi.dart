@@ -19,7 +19,7 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 45, 48, 55),
+      backgroundColor: Colors.green[100],
       appBar: AppBar(
         title: Text("Destination"),
       ),
@@ -60,10 +60,10 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(30.0),
                                 child: Image.network(
-                                  snapshot.data![index].foto_thumbnail_url,
-                                  height: 300,
+                                  snapshot.data![index].foto_cover_url,
+                                  height: 200,
                                 ),
                               ),
                               const SizedBox(height: 15),

@@ -9,7 +9,7 @@ class SingleDestination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 45, 48, 55),
+      backgroundColor: Colors.green[100],
       appBar: AppBar(
         title: Text("Detail"),
       ),
@@ -25,9 +25,9 @@ class SingleDestination extends StatelessWidget {
                         fontSize: 25,
                         letterSpacing: 1,
                         fontWeight: FontWeight.w800,
-                        color: Colors.white))),
+                        color: Colors.black))),
             ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(20.0),
               child: Image.network(
                 data.foto_cover_url,
                 width: 400,
@@ -44,9 +44,9 @@ class SingleDestination extends StatelessWidget {
                           TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white)),
+                          color: Colors.black)),
                   Text("${data.lokasi}, Indonesia",
-                      style: TextStyle(fontSize: 16, color: Colors.white))
+                      style: TextStyle(fontSize: 16, color: Colors.black))
                 ]),
                 Row(children: [
                   Text("Category: ",
@@ -54,9 +54,9 @@ class SingleDestination extends StatelessWidget {
                           TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white)),
+                          color: Colors.black)),
                   Text("${data.kategori}",
-                      style: TextStyle(fontSize: 16, color: Colors.white))
+                      style: TextStyle(fontSize: 16, color: Colors.black))
                 ]),
                 Row(children: [
                   Text("Like: ",
@@ -64,9 +64,9 @@ class SingleDestination extends StatelessWidget {
                           TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white)),
+                          color: Colors.black)),
                   Text("${data.jumlah_suka}",
-                      style: TextStyle(fontSize: 16, color: Colors.white))
+                      style: TextStyle(fontSize: 16, color: Colors.black))
                 ]),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text("Description: ",
@@ -74,9 +74,9 @@ class SingleDestination extends StatelessWidget {
                           TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white)),
+                          color: Colors.black)),
                   Text("${data.deskripsi}",
-                      style: TextStyle(fontSize: 16, color: Colors.white))
+                      style: TextStyle(fontSize: 16, color: Colors.black))
                 ]),
               ],
             ))
