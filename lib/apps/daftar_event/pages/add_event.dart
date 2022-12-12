@@ -55,7 +55,7 @@ class _AddEventState extends State<AddEvent> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text('Add Event'),
-          backgroundColor: Color.fromARGB(255, 9, 42, 59),
+          // backgroundColor: Color.fromARGB(255, 9, 42, 59),
         ),
         body: Container(
           padding: const EdgeInsets.only(left: 40, right: 40),

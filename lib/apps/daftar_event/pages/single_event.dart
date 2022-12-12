@@ -13,7 +13,7 @@ class SingleEvent extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Event Details"),
-        backgroundColor: Color.fromARGB(255, 9, 42, 59),
+        // backgroundColor: Color.fromARGB(255, 9, 42, 59),
       ),
       drawer: buildDrawer(context),
       body: Container(

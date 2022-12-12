@@ -29,7 +29,7 @@ class _DaftarEventState extends State<DaftarEvent> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Daftar Event"),
-          backgroundColor: Color.fromARGB(255, 9, 42, 59),
+          // backgroundColor: Color.fromARGB(255, 9, 42, 59),
         ),
         drawer: buildDrawer(context),
         body: FutureBuilder(
