@@ -18,7 +18,10 @@ class Dashboard extends StatelessWidget {
       body: Center(
         child: Container(
             decoration: BoxDecoration(
-                color: Colors.green[200],
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.greenAccent, Colors.blueGrey]),
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: const [
                   BoxShadow(color: Colors.black, blurRadius: 2.0)
