@@ -52,14 +52,24 @@ class Dashboard extends StatelessWidget {
                 //   ],
                 // ),
                 SizedBox(height: 30),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image.network(
-                    "https://i.pinimg.com/564x/d1/d8/e5/d1d8e5990a1d4b43ee791be68451d4f7.jpg",
-                    height: 250,
-                  ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(35)),
+                  child: Container(
+                      padding: EdgeInsets.all(5),
+                      // decoration: BoxDecoration(
+                      // padding: const EdgeInsets.all(10),
+                      child:
+                  ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Image.network(
+                          "https://i.pinimg.com/564x/d1/d8/e5/d1d8e5990a1d4b43ee791be68451d4f7.jpg",
+                          height: 240,
+                        ),
+                      )),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Column(
                   children: [
                     Container(
