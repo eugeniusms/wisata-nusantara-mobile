@@ -218,10 +218,19 @@ class _CeritaPerjalananState extends State<CeritaPerjalanan> {
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2),
-                                itemBuilder: (_, index) => Column(
+                                itemBuilder: (_, index) => Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20.0)),
+                                    child: Column(
                                   children: [
+                                        SizedBox(height: 20),
                                     Text(
-                                        snapshot.data[index]["fields"]["name"]),
+                                            snapshot.data[index]["fields"]
+                                                ["name"],
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold)),
                                     Text(snapshot.data[index]["fields"]
                                         ["review"]),
                                     TextButton(
@@ -235,12 +244,12 @@ class _CeritaPerjalananState extends State<CeritaPerjalanan> {
                                         "Delete",
                                       ),
                                       style: TextButton.styleFrom(
-                                        backgroundColor: Colors.green,
+                                            backgroundColor: Colors.red,
                                         primary: Colors.white,
                                       ),
                                     ),
                                   ],
-                                ),
+                                    )),
                                 itemCount: snapshot.data.length,
                               );
                             }
