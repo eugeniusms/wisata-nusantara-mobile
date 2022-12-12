@@ -142,31 +142,6 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
     );
   }
 
-  Widget panduanBerangkat(Weather weather) {
-    Panduan panduan = Panduan(weather: weather);
-    String saran = panduan.panduanBerangkat();
-    return Container(
-      padding: const EdgeInsets.all(16),
-      width: double.maxFinite,
-      decoration: BoxDecoration(
-        color: Colors.green[100],
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(1, 1, 8, 1),
-            child: Icon(
-              Icons.airplanemode_active_outlined,
-              color: Colors.green[900],
-            ),
-          ),
-          Flexible(child: Text(saran)),
-        ],
-      ),
-    );
-  }
-
   Widget panduanWisata(Weather weather) {
     Panduan panduan = Panduan(weather: weather);
     Map<String, String> saran = panduan.panduanWisata();
@@ -206,6 +181,59 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
     );
   }
 
+  Widget dialogNotif() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: AlertDialog(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        title: const Text("Kota tidak ditemukan"),
+        content: const Text("Silahkan masukkan kota yang benar"),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text("OK"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget futureWeather(AsyncSnapshot snapshot) {
+    if (snapshot.data == null) {
+      return const Center(child: CircularProgressIndicator());
+    } else {
+      if (!snapshot.hasData) {
+        return Column(
+          children: const [
+            Text(
+              "Kota tidak ditemukan :(",
+              style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+            ),
+            SizedBox(height: 8),
+          ],
+        );
+      } else {
+        Weather weatherData = snapshot.data!;
+        if (weatherData.cod != 200) {
+          return dialogNotif();
+        }
+        return Column(
+          children: [
+            temperatureWidget(weatherData),
+            pembatas(20),
+            iconDetail(),
+            weatherDetail(weatherData),
+            pembatas(20),
+            panduanWisata(weatherData),
+          ],
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     DateTime tanggal = DateTime.now();
@@ -228,70 +256,14 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
                     FutureBuilder(
                         future: fetchWeather(_kotaAsal),
                         builder: (context, AsyncSnapshot snapshot) {
-                          if (snapshot.data == null) {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          } else {
-                            if (!snapshot.hasData) {
-                              return Column(
-                                children: const [
-                                  Text(
-                                    "Kota tidak ditemukan :(",
-                                    style: TextStyle(
-                                        color: Color(0xff59A5D8), fontSize: 20),
-                                  ),
-                                  SizedBox(height: 8),
-                                ],
-                              );
-                            } else {
-                              Weather weatherData = snapshot.data!;
-                              return Column(
-                                children: [
-                                  temperatureWidget(weatherData),
-                                  pembatas(20),
-                                  iconDetail(),
-                                  weatherDetail(weatherData),
-                                  pembatas(20),
-                                  panduanBerangkat(weatherData),
-                                ],
-                              );
-                            }
-                          }
+                          return futureWeather(snapshot);
                         }),
                     pembatas(50),
                     header(capitalize(_kotaTujuan), formattedDate),
                     FutureBuilder(
                         future: fetchWeather(_kotaTujuan),
                         builder: (context, AsyncSnapshot snapshot) {
-                          if (snapshot.data == null) {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          } else {
-                            if (!snapshot.hasData) {
-                              return Column(
-                                children: const [
-                                  Text(
-                                    "Kota tidak ditemukan :(",
-                                    style: TextStyle(
-                                        color: Color(0xff59A5D8), fontSize: 20),
-                                  ),
-                                  SizedBox(height: 8),
-                                ],
-                              );
-                            } else {
-                              Weather weatherData = snapshot.data!;
-                              return Column(
-                                children: [
-                                  temperatureWidget(weatherData),
-                                  pembatas(20),
-                                  iconDetail(),
-                                  weatherDetail(weatherData),
-                                  pembatas(20),
-                                  panduanWisata(weatherData),
-                                ],
-                              );
-                            }
-                          }
+                          return futureWeather(snapshot);
                         }),
                   ],
                 ),

@@ -17,7 +17,24 @@ Future<Weather> fetchWeather(String kota) async {
 
   // melakukan decode response menjadi bentuk json
   var data = jsonDecode(utf8.decode(response.bodyBytes));
-  Weather weather = Weather.fromJson(data);
+  if (data['cod'] == 200) {
+    Weather weather = Weather.fromJson(data);
+    print(weather.cod);
 
-  return weather;
+    return weather;
+  } else {
+    Weather weather;
+    weather = Weather(
+      city: kota,
+      icon: "404",
+      description: "404",
+      temp: 1.0,
+      humidity: 0,
+      clouds: 0,
+      windSpeed: 1.0,
+      cod: 404,
+    );
+    print("masuk else");
+    return weather;
+  }
 }
