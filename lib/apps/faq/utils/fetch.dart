@@ -1,10 +1,15 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:http/http.dart' as http;
 import 'package:wisata_nusantara_mobile/apps/faq/models/private_faq_model.dart';
 import 'dart:convert';
 import 'package:wisata_nusantara_mobile/apps/faq/models/public_faq_model.dart';
+import 'package:wisata_nusantara_mobile/apps/authentication/models/User.dart';
 
 Future<List<PublicFaq>> fetchPublicFAQ() async {
   var url = Uri.parse('https://wisata-nusa.up.railway.app/faq/json/public/');
+  var username = UserLoggedIn.user.username;
+
   var response = await http.get(
     url,
     headers: {
@@ -47,6 +52,5 @@ Future<List<PrivateFaq>> fetchPrivateFAQ() async {
       listPrivateFaq.add(PrivateFaq.fromJson(d));
     }
   }
-
   return listPrivateFaq;
 }

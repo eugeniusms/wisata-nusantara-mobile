@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'dart:convert';
+import 'package:provider/provider.dart';
 
 class FaqForm extends StatefulWidget {
   const FaqForm({super.key});
@@ -10,24 +13,21 @@ class FaqForm extends StatefulWidget {
 class _FaqFormState extends State<FaqForm> {
   final _formKey = GlobalKey<FormState>();
   String _ownerName = "";
-  var _newQuestion;
+  String _newQuestion = "";
 
   @override
   Widget build(BuildContext context) {
-    // var _controller;
-    return Scaffold(
-      // backgroundColor: Color.fromARGB(255, 77, 79, 86),
+    final request = context.watch<CookieRequest>();
 
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Ask New Question'),
       ),
-      // drawer: const MyDrawer(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(20.0),
-            // color: const Color.fromARGB(223, 22, 22, 213),
             child: Column(
               children: [
                 Padding(
@@ -59,7 +59,7 @@ class _FaqFormState extends State<FaqForm> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Nama lengkap tidak boleh kosong!';
+                        return 'Nama tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -70,7 +70,7 @@ class _FaqFormState extends State<FaqForm> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Contoh: Siapa Tuhamnu?",
+                      hintText: "Contoh: Harga satu porsi sate pacil?",
                       labelText: "Question",
                       // Menambahkan icon agar lebih intuitif
                       icon: const Icon(Icons.question_mark),
@@ -79,10 +79,6 @@ class _FaqFormState extends State<FaqForm> {
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
-                    // keyboardType: TextInputType.number,
-                    // inputFormatters: <TextInputFormatter>[
-                    //   FilteringTextInputFormatter.digitsOnly
-                    // ],
                     // Menambahkan behavior saat nama diketik
                     onChanged: (String? value) {
                       setState(() {
@@ -98,7 +94,7 @@ class _FaqFormState extends State<FaqForm> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Nominal tidak boleh kosong!';
+                        return 'Pertanyaan tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -118,10 +114,15 @@ class _FaqFormState extends State<FaqForm> {
             hoverElevation: 50,
             label: const Text('Request'),
             icon: const Icon(Icons.add),
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState!.validate()) {
-                // var temp = Budget(_ownerName, _newQuestion, jenisBudget);
-                // ListBudget.list.add(temp);
+                final response = await request.postJson(
+                    "https://wisata-nusa.up.railway.app/faq/add_flutter/",
+                    jsonEncode({
+                      "username": _ownerName,
+                      "question": _newQuestion,
+                    }));
+
                 showDialog(
                   context: context,
                   builder: (context) {
@@ -135,12 +136,12 @@ class _FaqFormState extends State<FaqForm> {
                           padding: const EdgeInsets.only(top: 20, bottom: 20),
                           shrinkWrap: true,
                           children: <Widget>[
-                            // const Center(child: Text('Informasi Data')),
+                            // const Center(child: Text('Informasi')),
 
                             // TODO: Munculkan informasi yang didapat dari form
                             const Center(
                               child: Text(
-                                "Data telah tersimpan",
+                                "Pertanyaan telah diajukan",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
@@ -160,6 +161,10 @@ class _FaqFormState extends State<FaqForm> {
                     );
                   },
                 );
+                setState(() {
+                  _ownerName = "";
+                  _newQuestion = "";
+                });
               }
             },
           ),

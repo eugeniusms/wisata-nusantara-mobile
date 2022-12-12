@@ -1,7 +1,7 @@
 // Abdillah Assajjad
 import 'package:flutter/material.dart';
-import 'package:wisata_nusantara_mobile/components/Drawer.dart';
 import 'package:wisata_nusantara_mobile/apps/faq/pages/FaqDashboard.dart';
+import 'package:wisata_nusantara_mobile/apps/faq/components/FaqDrawer.dart';
 
 class FAQ extends StatelessWidget {
   const FAQ({super.key, required this.title});
@@ -13,8 +13,8 @@ class FAQ extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      drawer: buildDrawer(context),
-      body: Center(
+      drawer: buildFaqDrawer(context),
+      body: const Center(
         child: FAQPage(),
         // MULAI KERJAIN DARI SINI YA
       ),
