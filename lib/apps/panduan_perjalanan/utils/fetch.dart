@@ -19,7 +19,6 @@ Future<Weather> fetchWeather(String kota) async {
   var data = jsonDecode(utf8.decode(response.bodyBytes));
   if (data['cod'] == 200) {
     Weather weather = Weather.fromJson(data);
-    print(weather.cod);
 
     return weather;
   } else {
@@ -34,7 +33,6 @@ Future<Weather> fetchWeather(String kota) async {
       windSpeed: 1.0,
       cod: 404,
     );
-    print("masuk else");
     return weather;
   }
 }
