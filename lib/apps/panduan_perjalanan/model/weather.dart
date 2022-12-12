@@ -9,6 +9,7 @@ class Weather {
   int humidity;
   int clouds;
   double windSpeed;
+  int cod; // 200 = sukses, 404 = tidak ditemukan
 
   Weather({
     required this.city,
@@ -18,6 +19,7 @@ class Weather {
     required this.humidity,
     required this.clouds,
     required this.windSpeed,
+    required this.cod,
   });
 
   factory Weather.fromJson(Map<dynamic, dynamic> json) => Weather(
@@ -27,7 +29,8 @@ class Weather {
       temp: json['main']['temp'],
       humidity: json['main']['humidity'],
       clouds: json['clouds']['all'],
-      windSpeed: json['wind']['speed']);
+      windSpeed: json['wind']['speed'],
+      cod: json['cod']);
 
   static void setKota(String kotaAsal, String kotaTujuan) {
     Weather.kotaAsal = kotaAsal;
