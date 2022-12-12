@@ -59,7 +59,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
     return Scaffold(
       appBar: AppBar(
         // nama dari app bar adalah form budget
-        title: const Text('New Destination'),
+        title: const Text('Wisata Nusantara'),
       ),
       // menambahkan Drawer untuk navigasi antarhalaman
       drawer: buildDestinasiDrawer(context),
@@ -72,14 +72,14 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.all(Radius.circular(0.0))),
               padding: const EdgeInsets.only(
-                  right: 20.0, left: 20.0, top: 35.0, bottom: 80.0),
+                  right: 20.0, left: 20.0, top: 35.0, bottom: 40.0),
               child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.all(Radius.circular(40.0))),
                   padding: const EdgeInsets.only(
-                      right: 20.0, left: 20.0, top: 40.0, bottom: 50.0),
+                      right: 20.0, left: 20.0, top: 40.0, bottom: 30.0),
                   child: Column(
                 children: [
                   Padding(
@@ -89,7 +89,19 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                           // alignment yang digunakan adalah center
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // ====================================== JUDUL ===================================
+                                // ====================================== JUDUL FORM ===================================
+                                Text(
+                                  "New Destination",
+                                  style: TextStyle(
+                                      color: Colors.green[900],
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                // menambahkan jarak setinggi 15 pixel
+                                const SizedBox(
+                                  height: 35,
+                                ),
+                                // ====================================== JUDUL ===================================
                             // menambahkan form field nama
                             TextFormField(
                               // menambahkan decoration saat form belum diisi
@@ -100,6 +112,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                      prefixIcon: Icon(Icons.abc)
                               ),
                               controller: _coNama,
                               // mengubah state isi dari judul sesuai value ketika ada perubahan
@@ -137,6 +150,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                      prefixIcon: Icon(Icons.description)
                               ),
                               controller: _coDeskripsi,
                               // mengubah state isi dari deskripsi sesuai value ketika ada perubahan
@@ -175,6 +189,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                      prefixIcon: Icon(Icons.location_on)
                               ),
                               controller: _coLokasi,
                               // mengubah state isi dari lokasi sesuai value ketika ada perubahan
@@ -214,6 +229,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                    prefixIcon: Icon(Icons.category),
                               ),
                               controller: _coKategori,
                               // mengubah state isi dari kategori sesuai value ketika ada perubahan
@@ -255,6 +271,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                      prefixIcon: Icon(Icons.photo_camera)
                               ),
                               controller: _coFotoThumbnailUrl,
                               // mengubah state isi dari foto thumbnail url sesuai value ketika ada perubahan
@@ -295,6 +312,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                      prefixIcon: Icon(Icons.photo)
                               ),
                               controller: _coFotoCoverUrl,
                               // mengubah state isi dari foto cover url sesuai value ketika ada perubahan
@@ -335,6 +353,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                 ),
+                                      prefixIcon: Icon(Icons.map)
                               ),
                               controller: _coMapsUrl,
                               // mengubah state isi dari maps url sesuai value ketika ada perubahan
@@ -366,8 +385,13 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                     alignment: Alignment.bottomCenter,
                     child: TextButton(
                       style: ButtonStyle(
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 30)),
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.green),
+                            MaterialStateProperty.all(
+                              Colors.green,
+                            ),
                       ),
                       onPressed: () async {
                         // melakukan validasi form saat button onPressed
