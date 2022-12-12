@@ -19,13 +19,19 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[100],
+        // backgroundColor: Colors.green[100],
       appBar: AppBar(
         title: Text("Destination"),
       ),
       // menambahkan Drawer untuk navigasi antarhalaman
       drawer: buildDestinasiDrawer(context),
-      body: FutureBuilder(
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [Colors.greenAccent, Colors.blueGrey])),
+          child: FutureBuilder(
           future: fetchDestination(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
@@ -114,6 +120,6 @@ class _DaftarDestinasiState extends State<DaftarDestinasi> {
               }
             }
           }),
-    );
+        ));
   }
 }

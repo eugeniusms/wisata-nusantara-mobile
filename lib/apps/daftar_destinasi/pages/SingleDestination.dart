@@ -15,7 +15,10 @@ class SingleDestination extends StatelessWidget {
       ),
         body: Container( 
           decoration: BoxDecoration(
-              color: Colors.green[100],
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [Colors.greenAccent, Colors.blueGrey]),
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(Radius.circular(0.0))),
           padding: const EdgeInsets.only(
