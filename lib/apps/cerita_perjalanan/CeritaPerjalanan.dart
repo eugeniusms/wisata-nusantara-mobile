@@ -22,11 +22,32 @@ class _CeritaPerjalananState extends State<CeritaPerjalanan> {
   final _reviewFormKey = GlobalKey<FormState>();
   String _review = "";
 
-  Future<void> submit(BuildContext context) async {
+  CookieRequest request = CookieRequest();
+  int id = 0;
+  bool loggedIn = false;
+
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      final _request = Provider.of<CookieRequest>(context, listen: false);
+
+      if (!_request.loggedIn) {
+      } else {
+        setState(() {
+          request = _request;
+          //id = _request.id;
+          //loggedIn = _request.loggedIn;
+        });
+      }
+    });
+  }
+
+  Future<void> submit(BuildContext context, String id) async {
+    print("test");
     final response = await http.post(
         Uri.parse('https://wisata-nusa.up.railway.app/story/submit_json/'),
         headers: <String, String>{'Context-Type': 'application/json'},
-        body: jsonEncode(<String, dynamic>{'review': _review}));
+        body: jsonEncode(<String, dynamic>{'review': _review, 'id': id}));
   }
 
   @override
@@ -84,18 +105,20 @@ class _CeritaPerjalananState extends State<CeritaPerjalanan> {
                                   ),
                                   ElevatedButton(
                                       onPressed: () {
-                                        if (_reviewFormKey.currentState!.validate()) {
-                                          submit(context);
+                                        if (_reviewFormKey.currentState!
+                                            .validate()) {
+                                          print("test");
+                                          int id = 0; //masih dummy karena id user belum ada
+                                          submit(context, id.toString());
                                         }
-                                         final successBar = SnackBar(
-                                            content: const Text("Review berhasil disimpan!"),
-                                            action: SnackBarAction(
-                                              label: 'Hide',
-                                              onPressed: () {
-
-                                              },
-                                            ),
-                                          );
+                                        final successBar = SnackBar(
+                                          content: const Text(
+                                              "Review berhasil disimpan!"),
+                                          action: SnackBarAction(
+                                            label: 'Hide',
+                                            onPressed: () {},
+                                          ),
+                                        );
                                       },
                                       child: const Text("Send"))
                                 ],
