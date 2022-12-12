@@ -8,6 +8,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:wisata_nusantara_mobile/apps/authentication/models/User.dart';
 
 class CeritaPerjalanan extends StatefulWidget {
   const CeritaPerjalanan({super.key, required this.title});
@@ -19,12 +20,22 @@ class CeritaPerjalanan extends StatefulWidget {
 
 class _CeritaPerjalananState extends State<CeritaPerjalanan> {
   TextEditingController storyController = TextEditingController();
+  // final _formKey = GlobalKey<FormState>();
   final _reviewFormKey = GlobalKey<FormState>();
   String _review = "";
+  String _username = UserLoggedIn.user.username;
 
   CookieRequest request = CookieRequest();
   int id = 0;
   bool loggedIn = false;
+
+  final _coReview = TextEditingController();
+  void clearInput() {
+    _coReview.clear();
+    setState(() {
+      _review = "";
+    });
+  }
 
   void initState() {
     super.initState();
@@ -47,7 +58,11 @@ class _CeritaPerjalananState extends State<CeritaPerjalanan> {
     final response = await http.post(
         Uri.parse('https://wisata-nusa.up.railway.app/story/submit_json/'),
         headers: <String, String>{'Context-Type': 'application/json'},
-        body: jsonEncode(<String, dynamic>{'review': _review, 'id': id}));
+        body: jsonEncode(<String, dynamic>{
+          'review': _review,
+          'id': UserLoggedIn.user.username
+        }));
+    print(response.body);
   }
 
   @override
@@ -97,28 +112,69 @@ class _CeritaPerjalananState extends State<CeritaPerjalanan> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  TextField(
+                                  TextFormField(
                                     decoration: const InputDecoration(
+                                        hintText:
+                                            "Example: This destination ...",
+                                        labelText: "Review",
                                         border: OutlineInputBorder()),
-                                    controller:
-                                        storyController, // untuk ambil value story-nya
+                                    controller: _coReview,
+                                    // mengubah state isi dari judul sesuai value ketika ada perubahan
+                                    onChanged: (String? value) {
+                                      setState(() {
+                                        _review = value!;
+                                      });
+                                    },
+                                    // ketika onSaved maka akan mengubah state isi dari judul sesuai value
+                                    onSaved: (String? value) {
+                                      setState(() {
+                                        _review = value!;
+                                      });
+                                    },
+                                    // melakukan validasi form untuk kasus judul kosong
+                                    validator: (String? value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Review cannot be empty!';
+                                      }
+                                      return null;
+                                    },
                                   ),
                                   ElevatedButton(
-                                      onPressed: () {
-                                        if (_reviewFormKey.currentState!
-                                            .validate()) {
-                                          print("test");
-                                          int id = 0; //masih dummy karena id user belum ada
-                                          submit(context, id.toString());
+                                      onPressed: () async {
+                                        if (_username != "" && _review != "") {
+                                          print(_username);
+                                          print(_review);
+
+                                          // POST TO BACKEND
+                                          final response = await request.postJson(
+                                              "https://wisata-nusa.up.railway.app/story/submit_json/",
+                                              jsonEncode({
+                                                "review": _review,
+                                                "username": _username,
+                                              }));
+
+                                          SnackBar(
+                                            content: const Text(
+                                                "Review berhasil disimpan!"),
+                                            action: SnackBarAction(
+                                              label: 'Hide',
+                                              onPressed: () {},
+                                            ),
+                                          );
+
+                                          clearInput();
+                                        } else {
+                                          SnackBar(
+                                            content: const Text(
+                                                "Review gagal disimpan!"),
+                                            action: SnackBarAction(
+                                              label: 'Hide',
+                                              onPressed: () {},
+                                            ),
+                                          );
+
+                                          clearInput();
                                         }
-                                        final successBar = SnackBar(
-                                          content: const Text(
-                                              "Review berhasil disimpan!"),
-                                          action: SnackBarAction(
-                                            label: 'Hide',
-                                            onPressed: () {},
-                                          ),
-                                        );
                                       },
                                       child: const Text("Send"))
                                 ],
