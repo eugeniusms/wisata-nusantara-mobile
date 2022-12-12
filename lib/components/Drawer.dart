@@ -27,7 +27,7 @@ Drawer buildDrawer(BuildContext context) {
               context,
               MaterialPageRoute(
                   builder: (context) => const Dashboard(
-                        title: "Dashboard",
+                        title: "Wisata Nusantara",
                       )),
             );
           },
