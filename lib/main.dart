@@ -30,4 +30,3 @@ class WisataNusantara extends StatelessWidget {
             ));
   }
 }
-
