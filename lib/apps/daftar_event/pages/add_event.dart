@@ -58,6 +58,11 @@ class _AddEventState extends State<AddEvent> {
           // backgroundColor: Color.fromARGB(255, 9, 42, 59),
         ),
         body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [Colors.greenAccent, Colors.blueGrey])),
           padding: const EdgeInsets.only(left: 40, right: 40),
           child: Form(
             key: _formKey,

@@ -10,6 +10,7 @@ class SingleEvent extends StatelessWidget {
   Widget build(BuildContext context) {
     // var data;
     return Scaffold(
+      
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Event Details"),
@@ -17,6 +18,11 @@ class SingleEvent extends StatelessWidget {
       ),
       drawer: buildDrawer(context),
       body: Container(
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(
+        //         begin: Alignment.centerLeft,
+        //         end: Alignment.centerRight,
+        //         colors: [Colors.greenAccent, Colors.blueGrey])),
         margin: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [

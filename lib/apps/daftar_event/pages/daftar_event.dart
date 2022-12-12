@@ -49,7 +49,13 @@ class _DaftarEventState extends State<DaftarEvent> {
                   ],
                 );
               } else {
-                return ListView.builder(
+                return Container(
+                    decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [Colors.greenAccent, Colors.blueGrey])),
+                    child: ListView.builder(
                     itemCount: snapshot.data!.length,
                     itemBuilder: (_, index) => InkWell(
                           onTap: () {
@@ -113,7 +119,7 @@ class _DaftarEventState extends State<DaftarEvent> {
                               ],
                             ),
                           ),
-                        ));
+                            )));
               }
             }
           },
