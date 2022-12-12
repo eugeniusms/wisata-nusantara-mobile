@@ -33,7 +33,13 @@ class _PrivateFaqScreenPageState extends State<PrivateFaqScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('My Question')),
       drawer: buildFaqDrawer(context),
-      body: FutureBuilder(
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.greenAccent, Colors.blueGrey])),
+          child: FutureBuilder(
         future: getData(request),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
@@ -72,6 +78,6 @@ class _PrivateFaqScreenPageState extends State<PrivateFaqScreen> {
           }
         },
       ),
-    );
+        ));
   }
 }

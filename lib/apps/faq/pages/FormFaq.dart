@@ -26,7 +26,16 @@ class _FaqFormState extends State<FaqForm> {
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
-          child: Container(
+            child: Container(
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.greenAccent, Colors.blueGrey])),
+              child: Container(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                color: Colors.white,
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
@@ -104,7 +113,7 @@ class _FaqFormState extends State<FaqForm> {
             ),
           ),
         ),
-      ),
+          )),
       floatingActionButton:
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Padding(

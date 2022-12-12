@@ -22,7 +22,13 @@ class _FAQPageState extends State<FAQPage> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 45, 48, 55),
       drawer: buildFaqDrawer(context),
-      body: ListView(
+      body: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.greenAccent, Colors.blueGrey])),
+          child: ListView(
         shrinkWrap: true,
         children: [
           FutureBuilder(
@@ -90,7 +96,7 @@ class _FAQPageState extends State<FAQPage> {
                 }
               }),
         ],
-      ),
+          )),
       floatingActionButton:
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Padding(
