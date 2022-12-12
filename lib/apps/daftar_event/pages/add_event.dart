@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:wisata_nusantara_mobile/apps/daftar_event/components/drawer_event.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'dart:convert';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:wisata_nusantara_mobile/apps/daftar_event/pages/daftar_event.dart';
+import 'package:wisata_nusantara_mobile/components/Drawer.dart';
 
 class AddEvent extends StatefulWidget {
   const AddEvent({super.key});
@@ -20,24 +20,15 @@ class _AddEventState extends State<AddEvent> {
   String lokasi = "";
   String deskripsi = "";
   String foto = "";
-  String jenis = 'Semuanya';
-  // List<String> listcategory = [
-  //   'Semuanya',
-  //   'Musik',
-  //   'Olahraga',
-  //   'Budaya',
-  //   'Lainnya'
-  // ];
+  String jenis = 'Musik';
+
   void _showToast(BuildContext context, bool isValid) {
     final scaffold = ScaffoldMessenger.of(context);
     scaffold.showSnackBar(SnackBar(
-        // saat valid maka warna hijau, sebaliknya merah
         backgroundColor: isValid ? Colors.green : Colors.red,
-        // saat valid maka text menampilkan 'Budget berhasil disimpan', sebaliknya 'Isian masih belum lengkap :)'
         content: Text(isValid
             ? "Destination successfully saved"
             : "Form is not complete yet!"),
-        // menambahkan actio
         action: SnackBarAction(
             label: 'Close',
             textColor: Colors.white,
@@ -48,7 +39,6 @@ class _AddEventState extends State<AddEvent> {
 
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
-      DropdownMenuItem(child: Text("Semuanya"), value: "Semuanya"),
       DropdownMenuItem(child: Text("Musik"), value: "Musik"),
       DropdownMenuItem(child: Text("Olahraga"), value: "Olahraga"),
       DropdownMenuItem(child: Text("Budaya"), value: "Budaya"),
@@ -67,7 +57,6 @@ class _AddEventState extends State<AddEvent> {
           title: const Text('Add Event'),
           backgroundColor: Color.fromARGB(255, 9, 42, 59),
         ),
-        drawer: buildEventDrawer(context),
         body: Container(
           padding: const EdgeInsets.only(left: 40, right: 40),
           child: Form(

@@ -50,10 +50,7 @@ Drawer buildDrawer(BuildContext context) {
             // Route menu ke counter
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(
-                  builder: (context) => const DaftarEvent(
-                        title: "Event",
-                      )),
+              MaterialPageRoute(builder: (context) => const DaftarEvent()),
             );
           },
         ),
