@@ -59,7 +59,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
     return Scaffold(
       appBar: AppBar(
         // nama dari app bar adalah form budget
-        title: const Text('Add Destination'),
+        title: const Text('Wisata Nusantara'),
       ),
       // menambahkan Drawer untuk navigasi antarhalaman
       drawer: buildDestinasiDrawer(context),
@@ -67,9 +67,20 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
       body: Form(
           key: _formKey,
           child: Container(
-              // menambahkan padding sebesar 25 ke setiap sisi
-              padding: const EdgeInsets.all(25.0),
-              child: Column(
+              decoration: BoxDecoration(
+                  color: Colors.green[100],
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(0.0))),
+              padding: const EdgeInsets.only(
+                  right: 20.0, left: 20.0, top: 35.0, bottom: 40.0),
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(40.0))),
+                  padding: const EdgeInsets.only(
+                      right: 30.0, left: 30.0, top: 40.0, bottom: 30.0),
+                  child: Column(
                 children: [
                   Padding(
                       // menambahkan padding sebesar 10 pixel ke setiap sisi
@@ -78,7 +89,19 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                           // alignment yang digunakan adalah center
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // ====================================== JUDUL ===================================
+                                // ====================================== JUDUL FORM ===================================
+                                Text(
+                                  "New Destination",
+                                  style: TextStyle(
+                                      color: Colors.green[900],
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                // menambahkan jarak setinggi 15 pixel
+                                const SizedBox(
+                                  height: 35,
+                                ),
+                                // ====================================== JUDUL ===================================
                             // menambahkan form field nama
                             TextFormField(
                               // menambahkan decoration saat form belum diisi
@@ -86,9 +109,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 hintText: "Example: Candi Prambanan",
                                 labelText: "Name",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                      // border: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(30.0),
+                                      // ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.abc)
                               ),
                               controller: _coNama,
                               // mengubah state isi dari judul sesuai value ketika ada perubahan
@@ -123,9 +148,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 hintText: "Example: Candi Prambanan is a ...",
                                 labelText: "Description",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                      // border: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(30.0),
+                                      // ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.description)
                               ),
                               controller: _coDeskripsi,
                               // mengubah state isi dari deskripsi sesuai value ketika ada perubahan
@@ -161,9 +188,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 hintText: "Example: Yogyakarta",
                                 labelText: "Location",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                      // border: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(30.0),
+                                      // ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.location_on)
                               ),
                               controller: _coLokasi,
                               // mengubah state isi dari lokasi sesuai value ketika ada perubahan
@@ -200,9 +229,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 hintText: "Example: Culture",
                                 labelText: "Category",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                    // border: OutlineInputBorder(
+                                    //       borderRadius: BorderRadius.circular(30.0),
+                                    // ),
+                                    filled: true,
+                                    prefixIcon: Icon(Icons.category),
                               ),
                               controller: _coKategori,
                               // mengubah state isi dari kategori sesuai value ketika ada perubahan
@@ -241,9 +272,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                     "Example: https://i.pinimg.com/564x/1c/1c/1c/1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c.jpg",
                                 labelText: "Thumbnail Photo URL",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                      // border: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(30.0),
+                                      // ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.photo_camera)
                               ),
                               controller: _coFotoThumbnailUrl,
                               // mengubah state isi dari foto thumbnail url sesuai value ketika ada perubahan
@@ -281,9 +314,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                     "Example: https://i.pinimg.com/564x/1c/1c/1c/1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c.jpg",
                                 labelText: "Cover Photo URL",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                      // border: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(30.0),
+                                      // ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.photo)
                               ),
                               controller: _coFotoCoverUrl,
                               // mengubah state isi dari foto cover url sesuai value ketika ada perubahan
@@ -321,9 +356,11 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                     "Example: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.657384253948!2d106.82415431476932!3d-6.175667995496159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fbd2f0f4f8c5%3A0x2f0f4f8c5f0f4f8c5!2sJl.%20Kebon%20Jeruk%20Raya%20No.1%2C%20RT.1%2FRW.3%2C%20Kb.%20Jeruk%2C%20Kec.%20Kb.%20Jeruk%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011210!5e0!3m2!1sid!2sid!4v1626123456789!5m2!1sid!2sid",
                                 labelText: "Maps URL",
                                 // menambahkan rounded border sebesar 10 pixel
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
+                                      // border: OutlineInputBorder(
+                                      //       borderRadius: BorderRadius.circular(30.0),
+                                      // ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.map)
                               ),
                               controller: _coMapsUrl,
                               // mengubah state isi dari maps url sesuai value ketika ada perubahan
@@ -355,8 +392,13 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                     alignment: Alignment.bottomCenter,
                     child: TextButton(
                       style: ButtonStyle(
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 30)),
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.green),
+                            MaterialStateProperty.all(
+                              Colors.green,
+                            ),
                       ),
                       onPressed: () async {
                         // melakukan validasi form saat button onPressed
@@ -398,7 +440,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                       },
                       // button
                       child: const Text(
-                        "Add Destination",
+                            "Add",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -407,7 +449,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                     ),
                   ),
                 ],
-              ))),
+                  )))),
     );
   }
 
