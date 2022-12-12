@@ -12,7 +12,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text("Wisata Nusantara"),
       ),
       drawer: buildDrawer(context),
       body: Center(
@@ -22,7 +22,7 @@ class Dashboard extends StatelessWidget {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [Colors.greenAccent, Colors.blueGrey]),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(0),
                 boxShadow: const [
                   BoxShadow(color: Colors.black, blurRadius: 2.0)
                 ]),
@@ -37,20 +37,29 @@ class Dashboard extends StatelessWidget {
                 //     ),
                 //     Icon(Icons.home, size: 60)
                 //   ],
+                // // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Container(
+                //         padding: EdgeInsets.only(top: 30, bottom: 20),
+                //         decoration: BoxDecoration(
+                //             // padding: const EdgeInsets.all(10),
+                //             ),
+                //         child: Text("Wisata Nusantara",
+                //             style: TextStyle(
+                //                 fontSize: 30, fontWeight: FontWeight.bold)))
+                //   ],
                 // ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                        padding: EdgeInsets.only(top: 30, bottom: 20),
-                        decoration: BoxDecoration(
-                            // padding: const EdgeInsets.all(10),
-                            ),
-                        child: Text("Wisata Nusantara",
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold)))
-                  ],
+                SizedBox(height: 30),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Image.network(
+                    "https://i.pinimg.com/564x/d1/d8/e5/d1d8e5990a1d4b43ee791be68451d4f7.jpg",
+                    height: 250,
+                  ),
                 ),
+                SizedBox(height: 20),
                 Column(
                   children: [
                     Container(
@@ -64,15 +73,15 @@ class Dashboard extends StatelessWidget {
                         "The “Wisata Nusantara” application is inspired by the enthusiasm of the G20 Indonesia 2022 presidency. G20 Indonesia 2022 is expected to be a means to promote the Indonesian tourism sector and the creative economy which had weakened due to the Covid-19 pandemic.",
                       ),
                     ),
-                    Container(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 6),
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Text(
-                            "This application will contain various destinations and events in Indonesia. In addition, this application will also provide travel guides for local and international tourists.")),
+                    // Container(
+                    //     margin: const EdgeInsets.symmetric(
+                    //         horizontal: 20, vertical: 6),
+                    //     padding: EdgeInsets.all(20),
+                    //     decoration: BoxDecoration(
+                    //         color: Colors.white,
+                    //         borderRadius: BorderRadius.circular(20)),
+                    //     child: Text(
+                    //         "This application will contain various destinations and events in Indonesia. In addition, this application will also provide travel guides for local and international tourists.")),
                   ],
                 ),
                 Column(
