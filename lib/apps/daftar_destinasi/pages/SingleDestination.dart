@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/components/Drawer.dart';
-import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/models/destination.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/models/Destination.dart';
 
 class SingleDestination extends StatelessWidget {
   final Destination data;

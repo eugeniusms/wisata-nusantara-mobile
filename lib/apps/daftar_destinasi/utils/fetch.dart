@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/models/destination.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/models/Destination.dart';
 
 Future<List<Destination>> fetchDestination() async {
   var url =
