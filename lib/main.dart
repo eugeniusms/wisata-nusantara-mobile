@@ -10,7 +10,7 @@ void main() {
 class WisataNusantara extends StatelessWidget {
   // inisiasi key pada contructor CounterSeven
   const WisataNusantara({super.key});
-
+  // OTW DEPLOY
   // widget root of application.
   @override
   Widget build(BuildContext context) {
