@@ -59,7 +59,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
     return Scaffold(
       appBar: AppBar(
         // nama dari app bar adalah form budget
-        title: const Text('Add Destination'),
+        title: const Text('New Destination'),
       ),
       // menambahkan Drawer untuk navigasi antarhalaman
       drawer: buildDestinasiDrawer(context),
@@ -67,9 +67,20 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
       body: Form(
           key: _formKey,
           child: Container(
-              // menambahkan padding sebesar 25 ke setiap sisi
-              padding: const EdgeInsets.all(25.0),
-              child: Column(
+              decoration: BoxDecoration(
+                  color: Colors.green[100],
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(0.0))),
+              padding: const EdgeInsets.only(
+                  right: 20.0, left: 20.0, top: 35.0, bottom: 80.0),
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.all(Radius.circular(40.0))),
+                  padding: const EdgeInsets.only(
+                      right: 20.0, left: 20.0, top: 40.0, bottom: 50.0),
+                  child: Column(
                 children: [
                   Padding(
                       // menambahkan padding sebesar 10 pixel ke setiap sisi
@@ -87,7 +98,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Name",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coNama,
@@ -124,7 +135,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Description",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coDeskripsi,
@@ -162,7 +173,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Location",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coLokasi,
@@ -201,7 +212,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Category",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coKategori,
@@ -242,7 +253,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Thumbnail Photo URL",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coFotoThumbnailUrl,
@@ -282,7 +293,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Cover Photo URL",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coFotoCoverUrl,
@@ -322,7 +333,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                                 labelText: "Maps URL",
                                 // menambahkan rounded border sebesar 10 pixel
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               controller: _coMapsUrl,
@@ -398,7 +409,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                       },
                       // button
                       child: const Text(
-                        "Add Destination",
+                            "Add",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -407,7 +418,7 @@ class _DestinasiFormPageState extends State<DestinasiFormPage> {
                     ),
                   ),
                 ],
-              ))),
+                  )))),
     );
   }
 
