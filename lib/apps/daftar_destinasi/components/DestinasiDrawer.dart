@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:wisata_nusantara_mobile/apps/authentication/Authentication.dart';
 import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
-import 'package:wisata_nusantara_mobile/apps/cerita_perjalanan/CeritaPerjalanan.dart';
 import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DaftarDestinasi.dart';
-import 'package:wisata_nusantara_mobile/apps/daftar_event/pages/daftar_event.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/Wishlist.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DestinasiForm.dart';
 import 'package:wisata_nusantara_mobile/apps/dashboard/Dashboard.dart';
-import 'package:wisata_nusantara_mobile/apps/faq/FAQ.dart';
-import 'package:wisata_nusantara_mobile/apps/panduan_perjalanan/PanduanPerjalanan.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 // merupakan sebuah Drawer yang digunakan untuk navigasi antar page
-Drawer buildDrawer(BuildContext context) {
+Drawer buildDestinasiDrawer(BuildContext context) {
   final request = context.watch<CookieRequest>();
   return Drawer(
     child: ListView(
@@ -19,8 +16,8 @@ Drawer buildDrawer(BuildContext context) {
       // menu navigasi
       children: [
         ListTile(
-          title: const Text('Dashboard'),
-          leading: const Icon(Icons.house),
+          title: const Text('Back'),
+          leading: const Icon(Icons.arrow_back),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -44,58 +41,14 @@ Drawer buildDrawer(BuildContext context) {
           },
         ),
         ListTile(
-          title: const Text('Event'),
-          leading: const Icon(Icons.event),
+          title: const Text('Add Destination'),
+          leading: const Icon(Icons.add),
+          // saat diklik maka Navigator akan mengarahkan ke halaman Form
           onTap: () {
-            // Route menu ke counter
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (context) => const DaftarEvent(
-                        title: "Event",
-                      )),
-            );
-          },
-        ),
-        ListTile(
-          title: const Text('Journey'),
-          leading: const Icon(Icons.map),
-          onTap: () {
-            // Route menu ke counter
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const PanduanPerjalanan(
-                        title: "Journey",
-                      )),
-            );
-          },
-        ),
-        ListTile(
-          title: const Text('Story'),
-          leading: const Icon(Icons.book),
-          onTap: () {
-            // Route menu ke counter
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const CeritaPerjalanan(
-                        title: "Story",
-                      )),
-            );
-          },
-        ),
-        ListTile(
-          title: const Text('FAQ'),
-          leading: const Icon(Icons.question_answer),
-          onTap: () {
-            // Route menu ke counter
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const FAQ(
-                        title: "FAQ",
-                      )),
+                  builder: (context) => const DestinasiFormPage()),
             );
           },
         ),
