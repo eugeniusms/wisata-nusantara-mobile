@@ -10,6 +10,8 @@
 - Wahyu Sahrijal (2106752142)
 
 ## Aplikasi 💻
+Microsoft App Center Build Status
+[![Build status](https://build.appcenter.ms/v0.1/apps/d9336991-5a04-4ba1-8eb6-d41ade3ed764/branches/master/badge)](https://appcenter.ms)
 ### Technology Stack
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
