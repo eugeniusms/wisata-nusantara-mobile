@@ -142,19 +142,49 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
     );
   }
 
-  Widget panduanWisata(Weather weather) {
+  Widget panduanWisata(Weather weather, bool isDestionation) {
     Panduan panduan = Panduan(weather: weather);
-    Map<String, String> saran = panduan.panduanWisata();
-    return Container(
-      padding: const EdgeInsets.all(16),
-      width: double.maxFinite,
-      decoration: BoxDecoration(
-        color: Colors.green[100],
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        children: <Widget>[
-          for (var item in saran.entries)
+    if (isDestionation) {
+      Map<String, String> saran = panduan.panduanWisata();
+      return Container(
+        padding: const EdgeInsets.all(16),
+        width: double.maxFinite,
+        decoration: BoxDecoration(
+          color: Colors.green[100],
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          children: <Widget>[
+            for (var item in saran.entries)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(1, 1, 8, 1),
+                      child: Icon(
+                        iconMap[item.key] ?? Icons.error_outline,
+                        color: Colors.green[900],
+                      ),
+                    ),
+                    Flexible(child: Text(item.value)),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      );
+    } else {
+      String saran = panduan.panduanBerangkat();
+      return Container(
+        padding: const EdgeInsets.all(16),
+        width: double.maxFinite,
+        decoration: BoxDecoration(
+          color: Colors.green[100],
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: Row(
@@ -162,17 +192,18 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(1, 1, 8, 1),
                     child: Icon(
-                      iconMap[item.key] ?? Icons.error_outline,
+                      Icons.airplanemode_active_outlined,
                       color: Colors.green[900],
                     ),
                   ),
-                  Flexible(child: Text(item.value)),
+                  Flexible(child: Text(saran)),
                 ],
               ),
             ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    }
   }
 
   Widget pembatas(double size) {
@@ -201,7 +232,7 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
     );
   }
 
-  Widget futureWeather(AsyncSnapshot snapshot) {
+  Widget futureWeather(AsyncSnapshot snapshot, bool isDestination) {
     if (snapshot.data == null) {
       return const Center(child: CircularProgressIndicator());
     } else {
@@ -227,7 +258,7 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
             iconDetail(),
             weatherDetail(weatherData),
             pembatas(20),
-            panduanWisata(weatherData),
+            panduanWisata(weatherData, isDestination),
           ],
         );
       }
@@ -256,14 +287,14 @@ class _PanduanPerjalananState extends State<PanduanPerjalanan> {
                     FutureBuilder(
                         future: fetchWeather(_kotaAsal),
                         builder: (context, AsyncSnapshot snapshot) {
-                          return futureWeather(snapshot);
+                          return futureWeather(snapshot, false);
                         }),
                     pembatas(50),
                     header(capitalize(_kotaTujuan), formattedDate),
                     FutureBuilder(
                         future: fetchWeather(_kotaTujuan),
                         builder: (context, AsyncSnapshot snapshot) {
-                          return futureWeather(snapshot);
+                          return futureWeather(snapshot, true);
                         }),
                   ],
                 ),
