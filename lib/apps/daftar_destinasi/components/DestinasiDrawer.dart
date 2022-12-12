@@ -11,13 +11,15 @@ import 'package:provider/provider.dart';
 Drawer buildDestinasiDrawer(BuildContext context) {
   final request = context.watch<CookieRequest>();
   return Drawer(
+      child: Container(
+    color: Colors.black,
     child: ListView(
       padding: const EdgeInsets.only(top: 60.0, left: 30.0),
       // menu navigasi
       children: [
         ListTile(
-          title: const Text('Back'),
-          leading: const Icon(Icons.arrow_back),
+          title: const Text('Back', style: TextStyle(color: Colors.yellow)),
+          leading: const Icon(Icons.arrow_back, color: Colors.yellow),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -29,9 +31,11 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Destination'),
-          leading: const Icon(Icons.tour),
+          title:
+              const Text('Destination', style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.tour, color: Colors.white),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -40,9 +44,11 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Add Destination'),
-          leading: const Icon(Icons.add),
+          title: const Text('Add Destination',
+              style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.add, color: Colors.white),
           // saat diklik maka Navigator akan mengarahkan ke halaman Form
           onTap: () {
             Navigator.pushReplacement(
@@ -52,9 +58,10 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Login'),
-          leading: const Icon(Icons.login),
+          title: const Text('Login', style: TextStyle(color: Colors.green)),
+          leading: const Icon(Icons.login, color: Colors.green),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -66,10 +73,10 @@ Drawer buildDestinasiDrawer(BuildContext context) {
             );
           },
         ),
-        const Divider(),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Log Out'),
-          leading: const Icon(Icons.logout),
+          title: const Text('Log Out', style: TextStyle(color: Colors.red)),
+          leading: const Icon(Icons.logout, color: Colors.red),
           onTap: () async {
             final response = await request.logout(
                 "https://wisata-nusa.up.railway.app/auth-flutter/logout/");
@@ -91,5 +98,5 @@ Drawer buildDestinasiDrawer(BuildContext context) {
         ),
       ],
     ),
-  );
+  ));
 }
