@@ -1,6 +1,8 @@
 // All
 import 'package:flutter/material.dart';
 import 'package:wisata_nusantara_mobile/components/Drawer.dart';
+import 'package:wisata_nusantara_mobile/apps/daftar_destinasi/pages/DaftarDestinasi.dart';
+import 'package:wisata_nusantara_mobile/apps/authentication/pages/LoginPage.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key, required this.title});
@@ -79,19 +81,50 @@ class Dashboard extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Text(
-                        "You can see all the list of Indonesian tourist destinations that are on the website so you can set your trip more easily and neatly.",
-                      ),
+                      child: Column(children: [
+                        Text(
+                          "You can see all the list of Indonesian tourist destinations that are on the website so you can set your trip more easily and neatly.",
+                        ),
+                        SizedBox(height: 10),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const DaftarDestinasi()),
+                            );
+                          },
+                          child: Text('See all destinations'),
+                        )
+                      ]),
                     ),
                     Container(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 6),
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Text(
-                            "Hi You! Come on join with us, You can join as a contributor in our project with register and help fill in data to make it easier for every application user.")),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 6),
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(children: [
+                        Text(
+                          "Hi You! Come on join with us, You can join as a contributor in our project with register and help fill in data to make it easier for every application user.",
+                        ),
+                        SizedBox(height: 10),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const LoginPage(title: "Login")),
+                            );
+                          },
+                          child: Text('Login'),
+                        )
+                      ]),
+                    ),
+                    
                   ],
                 ),
               ],
