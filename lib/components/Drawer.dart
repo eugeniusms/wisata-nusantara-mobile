@@ -14,13 +14,16 @@ import 'package:provider/provider.dart';
 Drawer buildDrawer(BuildContext context) {
   final request = context.watch<CookieRequest>();
   return Drawer(
+      child: Container(
+    color: Colors.black,
     child: ListView(
       padding: const EdgeInsets.only(top: 60.0, left: 30.0),
       // menu navigasi
       children: [
         ListTile(
-          title: const Text('Dashboard'),
-          leading: const Icon(Icons.house),
+          title:
+              const Text('Dashboard', style: TextStyle(color: Colors.yellow)),
+          leading: const Icon(Icons.house, color: Colors.yellow),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -32,9 +35,11 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Destination'),
-          leading: const Icon(Icons.tour),
+          title:
+              const Text('Destination', style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.tour, color: Colors.white),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -43,9 +48,10 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Event'),
-          leading: const Icon(Icons.event),
+          title: const Text('Event', style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.event, color: Colors.white),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -54,9 +60,10 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Journey'),
-          leading: const Icon(Icons.map),
+          title: const Text('Journey', style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.map, color: Colors.white),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -68,9 +75,10 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Story'),
-          leading: const Icon(Icons.book),
+          title: const Text('Story', style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.book, color: Colors.white),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -82,9 +90,10 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('FAQ'),
-          leading: const Icon(Icons.question_answer),
+          title: const Text('FAQ', style: TextStyle(color: Colors.white)),
+          leading: const Icon(Icons.question_answer, color: Colors.white),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -96,9 +105,10 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Login'),
-          leading: const Icon(Icons.login),
+          title: const Text('Login', style: TextStyle(color: Colors.green)),
+          leading: const Icon(Icons.login, color: Colors.green),
           onTap: () {
             // Route menu ke counter
             Navigator.pushReplacement(
@@ -110,10 +120,10 @@ Drawer buildDrawer(BuildContext context) {
             );
           },
         ),
-        const Divider(),
+        Divider(color: Colors.white),
         ListTile(
-          title: const Text('Log Out'),
-          leading: const Icon(Icons.logout),
+          title: const Text('Log Out', style: TextStyle(color: Colors.red)),
+          leading: const Icon(Icons.logout, color: Colors.red),
           onTap: () async {
             final response = await request.logout(
                 "https://wisata-nusa.up.railway.app/auth-flutter/logout/");
@@ -135,5 +145,5 @@ Drawer buildDrawer(BuildContext context) {
         ),
       ],
     ),
-  );
+  ));
 }
